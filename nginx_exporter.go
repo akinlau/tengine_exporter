@@ -155,7 +155,6 @@ func main() {
 	exporter := NewExporter(*nginxScrapeURI)
 	prometheus.MustRegister(exporter)
 
-	log.Printf("Starting Server: %s", *listeningAddress)
 	http.Handle(*metricsEndpoint, prometheus.Handler())
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write(landingPage)
