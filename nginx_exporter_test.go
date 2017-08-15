@@ -9,12 +9,14 @@ import (
 )
 
 const (
-	nginxStatus = `Active connections: 91 
-server accepts handled requests
- 145249 145249 151557 
-Reading: 0 Writing: 24 Waiting: 66 
+	nginxStatus = `0,us1,10.1.0.1:80,up,8247,0,tcp,0
+1,us1,10.1.0.2:80,up,8251,0,tcp,0
+2,us2,10.1.0.3:80,up,8251,0,tcp,0
+3,us2,10.1.0.4:80,up,8247,0,tcp,0
+4,us2,10.1.0.5:80,up,7918,0,tcp,0
 `
-	metricCount = 7
+	// 5 status and 1 up
+	metricCount = 6
 )
 
 func TestNginxStatus(t *testing.T) {
